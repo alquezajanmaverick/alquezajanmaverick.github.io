@@ -1,0 +1,93 @@
+html{
+    overflow: hidden;
+}
+body{
+    background-color: black;
+    padding: 0px;
+    display: inline;
+}
+.bg-body{
+    display: inline-block;
+    position: absolute;
+    background-image: url(../../assets/img/Capture.png);
+    background-size: 145%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    animation: panning 4s forwards;
+}
+.img-bg{
+    height: 120%;
+    width: 115%;
+    bottom: 0px;
+    position: fixed;
+}
+.right-bar{
+    position:fixed;
+    width: 50%;
+    height: 100%;
+    right:0px;
+    background-color: rgba(0,0,20,0.8);
+}
+.boxed{
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    background-color: transparent;
+    /* border: 1px solid #fafafa54; */
+    border-bottom: 1px solid #fafafa54;
+    border-right: 1px solid #fafafa54;
+    transition: width 2s;
+    transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+.half{
+    width:calc(100%/6);
+    height: calc(100%/6);
+    position: relative;
+    padding: 0px;
+}
+.half p{
+    position: absolute;
+    bottom: 0 !important;
+    right: 0 !important;
+    margin:0 !important;
+    color: white;
+    transform: translate(5px,9px);
+    margin-bottom:-9px !important;
+    margin-right: -5px !important; 
+}
+.whole p{
+    position: absolute;
+    bottom: 0 !important;
+    right: 0 !important;
+    margin:0;
+    color: white;
+    transform: translate(5px,9px);
+    margin-bottom:-9px !important;
+    margin-right: -5px !important;
+}
+#addon{
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    color: white;
+    transform: translate(5px,9px) !important;
+    margin-top: -19px;
+    margin-right: 0px !important;
+}
+.whole{
+    width:calc(100%/6);
+    height: calc(100%/3);
+}
+.thrice{
+    width:calc(100%/2);
+    height: calc(100%/3);
+    border-bottom: 1px solid #fafafa54;
+}
+.gridline{
+    display: inline-block;
+    position: fixed;
+    width:100%;
+    height: 100%;
+}
