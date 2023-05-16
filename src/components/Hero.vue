@@ -31,7 +31,7 @@ const diff = dayjs("2019-06-01").toNow(true);
       <h1
         class="leading-tight poppins font-semibold text-3xl text-slate-700 dark:text-slate-200"
       >
-        Raised by the
+        Raised in the
         <span class="text-purple-600 uppercase text-4xl md:text-5xl font-bold"
           >90's</span
         >
