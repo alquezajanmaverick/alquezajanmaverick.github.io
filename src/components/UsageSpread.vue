@@ -1,38 +1,47 @@
 <template>
-  <section class="spread usage">
-    <RegistrationMarks />
+  <section id="process" class="section process">
+    <div class="container">
+      <header class="section__head reveal">
+        <span class="section__marker mono">04 / How I Work</span>
+        <h2 class="section__title">A clear thread, start to finish</h2>
+        <p class="section__sub">
+          No black boxes, no radio silence. These are the working rules I keep
+          on every project.
+        </p>
+      </header>
 
-    <header class="spread__header">
-      <h2 class="spread__title">04 — Usage</h2>
-      <p class="spread__subhead">Rules of engagement — how this mark is applied in collaboration.</p>
-    </header>
+      <div class="process__grid">
+        <div class="process__col reveal">
+          <h3 class="process__col-title mono">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+            Always
+          </h3>
+          <ol class="process__list">
+            <li v-for="(item, i) in dos" :key="i">
+              <span class="process__index mono">{{ String(i + 1).padStart(2, "0") }}</span>
+              <span class="process__item">{{ item }}</span>
+            </li>
+          </ol>
+        </div>
 
-    <div class="usage__columns">
-      <div class="usage__column">
-        <p class="label usage__column-title usage__column-title--do">Do</p>
-        <ol class="usage__list">
-          <li v-for="(item, i) in dos" :key="i">
-            <span class="label usage__index">{{ String(i + 1).padStart(2, "0") }}</span>
-            <span>{{ item }}</span>
-          </li>
-        </ol>
-      </div>
-      <div class="usage__column">
-        <p class="label usage__column-title usage__column-title--dont">Don't</p>
-        <ol class="usage__list">
-          <li v-for="(item, i) in donts" :key="i">
-            <span class="label usage__index">{{ String(i + 1).padStart(2, "0") }}</span>
-            <span>{{ item }}</span>
-          </li>
-        </ol>
+        <div class="process__col reveal" style="transition-delay: 120ms">
+          <h3 class="process__col-title process__col-title--muted mono">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            Off the table
+          </h3>
+          <ol class="process__list">
+            <li v-for="(item, i) in donts" :key="i">
+              <span class="process__index mono">{{ String(i + 1).padStart(2, "0") }}</span>
+              <span class="process__item">{{ item }}</span>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import RegistrationMarks from "./RegistrationMarks.vue";
-
 const dos = [
   "Bring the real problem, not just the deliverable you think you need.",
   "Expect design and the code that ships it — same person, one thread.",
@@ -47,89 +56,79 @@ const donts = [
 </script>
 
 <style scoped>
-.spread {
-  position: relative;
-  min-height: 100vh;
-  scroll-snap-align: start;
-  padding: var(--space-xl) var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-lg);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.spread__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.spread__title {
-  margin: 0;
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.05;
-}
-
-.spread__subhead {
-  margin: 0;
-  color: var(--ink-secondary);
-}
-
-.usage__columns {
+.process__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
 }
 
-.usage__column-title {
-  margin: 0 0 var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 1px solid var(--hairline);
+.process__col {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
 }
 
-.usage__column-title--do {
+.process__col-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
   color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.usage__column-title--dont {
-  color: var(--ink-secondary);
+.process__col-title i {
+  font-size: 0.85rem;
 }
 
-.usage__list {
+.process__col-title--muted {
+  color: var(--ink-3);
+}
+
+.process__list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
 }
 
-.usage__list li {
+.process__list li {
   display: flex;
-  gap: var(--space-sm);
-  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--line);
   font-size: 1.0625rem;
   line-height: 1.5;
 }
 
-.usage__index {
-  color: var(--ink-secondary);
+.process__list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.process__list li:last-child {
+  padding-bottom: 0;
+}
+
+.process__index {
+  color: var(--ink-3);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding-top: 5px;
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-  .usage__columns {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
+.process__item {
+  color: var(--ink-2);
 }
 
-@media (max-width: 640px) {
-  .spread {
-    padding: var(--space-lg) var(--space-md);
+@media (min-width: 720px) {
+  .process__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
   }
 }
 </style>

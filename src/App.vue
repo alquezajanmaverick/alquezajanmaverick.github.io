@@ -1,51 +1,63 @@
 <template>
-  <div id="scroller" ref="scroller">
-    <CoverSpread />
-    <PaletteSpread />
-    <MarksSpread />
-    <UsageSpread />
-    <SignOffSpread />
+  <div id="top">
+    <FolioNav :active="active" />
+    <main>
+      <CoverSpread />
+      <CapabilitiesSpread />
+      <MarksSpread />
+      <UsageSpread />
+      <SignOffSpread />
+    </main>
   </div>
-  <FolioNav :active="active" :total="5" />
 </template>
 
 <script setup>
 import { onMounted, onUnmounted, ref } from "vue";
+import FolioNav from "./components/FolioNav.vue";
 import CoverSpread from "./components/CoverSpread.vue";
-import PaletteSpread from "./components/PaletteSpread.vue";
+import CapabilitiesSpread from "./components/CapabilitiesSpread.vue";
 import MarksSpread from "./components/MarksSpread.vue";
 import UsageSpread from "./components/UsageSpread.vue";
 import SignOffSpread from "./components/SignOffSpread.vue";
-import FolioNav from "./components/FolioNav.vue";
 
-const scroller = ref(null);
-const active = ref(1);
-let observer;
+const sections = ["hero", "capabilities", "skills", "process", "contact"];
+const active = ref("hero");
+
+let spyObserver;
+let revealObserver;
 
 onMounted(() => {
-  const sections = scroller.value.querySelectorAll(".spread");
-  observer = new IntersectionObserver(
+  spyObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) active.value = entry.target.id;
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) spyObserver.observe(el);
+  });
+
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          active.value = Array.from(sections).indexOf(entry.target) + 1;
+          entry.target.classList.add("is-in");
+          revealObserver.unobserve(entry.target);
         }
       });
     },
-    { root: scroller.value, threshold: 0.6 }
+    { threshold: 0.12 }
   );
-  sections.forEach((section) => observer.observe(section));
+
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 });
 
 onUnmounted(() => {
-  observer?.disconnect();
+  spyObserver?.disconnect();
+  revealObserver?.disconnect();
 });
 </script>
-
-<style scoped>
-#scroller {
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  height: 100vh;
-}
-</style>

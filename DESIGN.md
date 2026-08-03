@@ -1,213 +1,245 @@
 ---
-name: Jan Maverick Alqueza — Brand Guidelines
-description: A personal landing page staged as its own brand guideline manual
+name: Jan Maverick Alqueza — Portfolio
+description: A modern single-page portfolio for a UX/UI designer and web developer, built to convert freelance visitors
 colors:
-  proof-red: "#C63A0F"
-  proof-red-negative: "#E14A1C"
-  plate-black: "#14161A"
-  negative-white: "#F5F5F2"
-  stock-white: "#FAFAF9"
-  card-white: "#FFFFFF"
-  negative-black: "#121316"
-  card-white-negative: "#1B1D21"
-  proof-gray: "#6B6E76"
-  proof-gray-negative: "#A7AAB2"
-  registration-gray: "#D8D9DC"
-  registration-gray-negative: "#3A3C42"
+  accent: "#C63A0F"
+  accent-negative: "#E14A1C"
+  ink: "#131517"
+  ink-2: "#5C6169"
+  ink-3: "#8B9098"
+  bg: "#FBFFFA"
+  surface: "#FFFFFF"
+  surface-2: "#F4F4F2"
+  line: "#E5E6E8"
+  accent-soft: "#FBE7E3"
+  bg-negative: "#0F1113"
+  surface-negative: "#16181C"
+  surface-2-negative: "#1C1F24"
+  ink-negative: "#F1F2F3"
+  ink-2-negative: "#A6ABB3"
+  line-negative: "#292D33"
+  accent-soft-negative: "#2B1710"
 typography:
   display:
     fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "clamp(2.75rem, 6vw, 5.5rem)"
+    fontSize: "clamp(3rem, 9vw, 6.5rem)"
     fontWeight: 700
-    lineHeight: 0.98
-    letterSpacing: "-0.01em"
-  headline:
+    lineHeight: 0.95
+    letterSpacing: "-0.035em"
+  title:
     fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 3.2vw, 2.75rem)"
-    fontWeight: 500
+    fontSize: "clamp(1.9rem, 3.6vw, 2.75rem)"
+    fontWeight: 700
     lineHeight: 1.05
-  lede:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 400
-    lineHeight: 1.5
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "Space Grotesk, system-ui, sans-serif"
     fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.5
-  caption:
+    lineHeight: 1.6
+  lede:
     fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "0.8125rem"
-    fontWeight: 400
-    lineHeight: 1.4
+    fontSize: "1.25rem"
+    lineHeight: 1.55
   label:
     fontFamily: "Space Mono, ui-monospace, monospace"
-    fontSize: "0.75rem"
-    fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: "0.08em"
-  detail:
-    fontFamily: "Space Mono, ui-monospace, monospace"
-    fontSize: "0.8rem"
-    fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: "0.02em"
+    fontSize: "0.72-0.78rem"
+    letterSpacing: "0.08-0.14em"
+    textTransform: "uppercase"
 rounded:
-  none: "0px"
-spacing:
-  xs: "8px"
-  sm: "16px"
-  md: "24px"
-  lg: "48px"
-  xl: "96px"
+  sm: "8px"
+  md: "12px"
+  lg: "18px"
+  pill: "999px"
 components:
-  swatch-card:
-    backgroundColor: "{colors.card-white}"
-    textColor: "{colors.plate-black}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "24px"
-  mark-cell:
-    backgroundColor: "{colors.card-white}"
-    textColor: "{colors.plate-black}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "16px"
-  mark-cell-hover:
-    backgroundColor: "{colors.proof-red}"
-    textColor: "{colors.card-white}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "16px"
   button-primary:
-    backgroundColor: "{colors.proof-red}"
-    textColor: "{colors.card-white}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "16px 32px"
+    background: "{colors.accent}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.md}"
+    padding: "13px 22px"
   button-primary-hover:
-    backgroundColor: "{colors.plate-black}"
-    textColor: "{colors.card-white}"
-    typography: "{typography.label}"
-    rounded: "{rounded.none}"
-    padding: "16px 32px"
+    background: "{colors.ink}"
+    textColor: "{colors.bg}"
+  card:
+    background: "{colors.surface}"
+    border: "1px solid {colors.line}"
+    rounded: "{colors.lg}"
+    shadow: "0 1px 2px rgba(19,21,23,0.05)"
+  card-hover:
+    border: "color-mix(accent 45%, line)"
+    shadow: "0 14px 40px -16px rgba(19,21,23,0.18)"
+    translateY: "-4px"
+  chip:
+    background: "{colors.surface}"
+    border: "1px solid {colors.line}"
+    rounded: "{rounded.pill}"
+    padding: "9px 16px"
 ---
 
-# Design System: Jan Maverick Alqueza — Brand Guidelines
+# Design System: Jan Maverick Alqueza — Portfolio
 
 ## Overview
 
-**Creative North Star: "The Personal Brand Guideline Book"**
+**Creative North Star: "Design and the code that ships it — one person, one thread."**
 
-The site is not a portfolio describing a designer's brand; it is that brand's own guideline manual, rendered as five numbered spreads a visitor scrolls through like turning pages: cover, palette, skill set, usage, sign-off. Every section borrows a real convention from print brand-guideline documents — spec-sheet callouts, clear-space diagrams, logo-on-color usage grids, approval stamps — and applies that convention honestly to a single person's identity and skill set. The register is calm, considered, and confident rather than decorative: this is a working document a client could believe was actually issued to a print shop, not a themed skin over a generic hero-plus-icon-grid template.
+The site is a single scrolling portfolio page for a freelance UX/UI designer and web
+developer. It is built to answer the one question a potential client asks first:
+*"Can this person do both the design and the build?"* The answer is the page itself —
+five sections that move from identity (hero) to capability (what I do, what I use)
+to collaboration (how I work) to the ask (contact). The register is calm, confident,
+and practical: a working tool for evaluation, not a themed showreel.
 
-Confirmed rejections: no script/cursive display face, no rounded corners, no drop shadows, no gradient hero, no stock illustration, no cream/ivory paper tone.
+Confirmed rejections: no print-guideline staging (no registration marks, stamps,
+folio chapters, hard-trim corners, or full-viewport snap deck), no gradient hero,
+no glassmorphism-as-decoration, no serif display face, no stock illustration.
 
 **Key Characteristics:**
-- Numbered spreads (01–05) read as pages of a real guideline book, not sections of a webpage.
-- One spot ink (Proof Red) carries every accent; everything else is plate-black ink on stock-white paper.
-- Space Mono renders every spec callout, stamp, and folio number; Space Grotesk carries every reading sentence.
-- Registration marks (a small crosshair-in-circle) recur at spread corners as the system's one decorative signature.
-- Dark mode is the book's own film-negative proof sheet, not a bolted-on theme swap.
+- One accent (burnt orange-red) against a near-black-on-off-white ink system, in
+  both paper (light) and negative (dark) modes. The accent is the only hue.
+- Space Grotesk carries every sentence; Space Mono carries every label, number,
+  and technical string — the same spec-vs-sentence split as before, kept.
+- Soft, consistent rounding (8 / 12 / 18px, pills for chips) and subtle tinted
+  shadows replace the old hard-trim/flat look.
+- Fixed glass nav (backdrop blur) with wordmark, section links, and the paper/negative
+  toggle; scroll-spy highlights the active section.
+- Purposeful motion only: scroll-reveal on entry, hover lift on cards/chips,
+  active press on buttons — all disabled under `prefers-reduced-motion`.
 
 ## Colors
 
-A one-ink print system: stock-white paper, plate-black body ink, and a single spot red reserved for accents, stamps, and active state.
+One-ink system: near-black ink on an off-white ground, with a single spot accent
+reserved for emphasis, active states, and the CTA.
 
 ### Primary
-- **Proof Red** (#C63A0F): the one spot ink. Owns the primary CTA, active folio number, stamp rings, mark-cell hover fill, and the large palette-spread swatch. Never used for body text at small sizes outside these roles.
-- **Proof Red — Negative** (#E14A1C): the same ink lifted slightly for legibility against the negative-black ground in dark mode.
+- **Accent** (#C63A0F): owns the CTA, active nav, status dot, section markers, icon
+  tiles, and hover borders. Never used for body text at small sizes.
+- **Accent — Negative** (#E14A1C): the same ink lifted for legibility against the
+  negative ground.
 
 ### Neutral
-- **Plate Black** (#14161A): primary text ink, hairline rules, registration mark strokes, icon fills. Not pure black — a warm-neutral near-black that reads as ink on paper.
-- **Proof Gray** (#6B6E76): secondary/caption text, inactive folio numbers.
-- **Registration Gray** (#D8D9DC): hairline borders, spread frame, mark-cell dividers.
-- **Stock White** (#FAFAF9): page background. A true paper white, deliberately not cream or ivory.
-- **Card White** (#FFFFFF): swatch cards, mark cells, and stamp surfaces sit one step brighter than the page to read as objects placed on the page.
-- **Negative Black** (#121316): dark-mode page background (the "film negative" proof-sheet variant).
-- **Negative White** (#F5F5F2): dark-mode primary ink.
-- **Card White — Negative** (#1B1D21): dark-mode's one-step-brighter card surface, replacing Card White so cards still read as objects sitting on the negative-black page.
-- **Proof Gray — Negative** (#A7AAB2): dark-mode secondary/caption text, replacing Proof Gray for AA contrast against Negative Black.
-- **Registration Gray — Negative** (#3A3C42): dark-mode hairlines.
+- **Ink** (#131517): primary text. **Ink-2** (#5C6169): secondary copy.
+  **Ink-3** (#8B9098): captions, meta labels, dead states.
+- **BG** (#FBFFFA): page ground. **Surface** (#FFFFFF): cards, nav, chips.
+  **Surface-2** (#F4F4F2): tonal fills. **Line** (#E5E6E8): hairlines.
+- **Accent-soft** (#FBE7E3): icon-tile fills — the accent at 12% strength, never a
+  second hue.
+- Negative mode inverts the same roles: BG #0F1113, Surface #16181C, Ink #F1F2F3,
+  Line #292D33, Accent-soft #2B1710.
 
 ### Named Rules
-**The One Ink Rule.** Exactly one spot color exists at base-palette scale, in both paper and negative modes — no other hue is introduced anywhere in the system.
+**The One Ink Rule.** Exactly one accent hue exists in both modes. Accent-soft is a
+tint of that hue, not a new color.
 
 ## Typography
 
-**Display Font:** Space Grotesk (with system-ui, sans-serif fallback)
-**Body Font:** Space Grotesk (same family, regular weight — one grotesk voice throughout)
-**Label/Mono Font:** Space Mono (with ui-monospace fallback)
+**Display & Body:** Space Grotesk (with system-ui fallback).
+**Label/Mono:** Space Mono (with ui-monospace fallback).
 
-**Character:** A confident, slightly technical grotesk for everything meant to be read as a sentence, and a fixed-width mono for everything meant to be read as a spec — the same split a real Pantone card or guideline PDF makes between its cover line and its callout numbers.
+**Character:** A confident grotesk for everything read as a sentence; a fixed-width
+mono for everything read as a spec — section markers (`02 / CAPABILITIES`), meta
+labels, tags, the email, the footer.
 
 ### Hierarchy
-- **Display** (700, clamp(2.75rem, 6vw, 5.5rem), 0.98): cover wordmark lockup and spread section titles.
-- **Headline** (500, clamp(1.75rem, 3.2vw, 2.75rem), 1.05): spread subheads.
-- **Lede** (400, 1.25rem, 1.5): a single emphasis sentence, used once per spread at most (sign-off's closing line).
-- **Body** (400, 1.0625rem, 1.5): running copy, usage-rule sentences. Max ~68ch line length.
-- **Caption** (400, 0.8125rem, 1.4): secondary reading text inside a spec/fact card (palette spread's hex/usage values and identity-fact values).
-- **Label** (400, 0.75rem, letter-spacing 0.08em, uppercase): spec callouts, folio numbers, mark-cell captions, hex/date/version strings, primary button text.
-- **Detail** (400, 0.8rem, mono, normal case, no letter-spacing beyond 0.02em): sentence-case mono values that must stay copy-legible rather than shout — currently only the sign-off contact email.
+- **Display** (700, clamp(3–6.5rem), 0.95): the hero name.
+- **Title** (700, clamp(1.9–2.75rem), 1.05): section headings.
+- **Lede** (400, 1.25rem): the hero lede and section subheads.
+- **Body** (400, 1.0625rem, 1.6): running copy, max ~65ch.
+- **Label** (mono, uppercase, 0.72–0.78rem): markers, nav links, buttons, tags,
+  meta labels, footer.
 
 ### Named Rules
-**The Fit-Driven Stamp Rule.** Stamp text is Label set smaller to fit its own circle rather than a new hierarchy step: 0.65rem inside the cover's 96px stamp, 0.8rem inside the sign-off's 128px stamp. Mark-cell captions are Label set to 0.625rem for grid density. Both are documented component exceptions, not general-purpose sizes — don't reach for 0.65rem/0.8rem/0.625rem outside these two components.
-
-**The Two-Voice Rule.** A block of copy is either a sentence (Space Grotesk) or a spec (Space Mono uppercase). Never mix the two families inside one line.
+**The Two-Voice Rule.** A block is either a sentence (Space Grotesk) or a spec
+(Space Mono, uppercase). Never mix families inside one line.
 
 ## Layout
 
-Five full-height numbered spreads (`01`–`05`) in a CSS scroll-snap-y container, each snapping to the viewport like a page turn. Each spread is framed by a thin registration border inset from the viewport edge, with a small crosshair-in-circle registration mark at each of its four corners — the recurring signature motif that stands in for a logo. Content sits in a centered column, max-width ~1200px, with generous edge margins that read as the page's bleed/trim area. Spacing scale: 8 / 16 / 24 / 48 / 96px, used so a dense spread (skill grid) is always followed by a quieter one (usage/sign-off). A fixed folio indicator (current spread number over total, e.g. `03 / 05`) sits in a bottom corner across all spreads. Mobile: spreads keep their full-height snap behavior; multi-column grids (palette specimens, skill grid) collapse to fewer columns, never below 2.
+A fluid single page, max-width 1120px, no scroll-snap. Fixed glass nav (64px) on
+top; `scroll-padding-top` keeps anchors clear of it. Sections: Hero, Capabilities,
+Skill Set, How I Work, Contact — each `clamp(4.5rem, 9vw, 7rem)` vertical rhythm,
+alternating layouts (split hero → card grid → chip groups → split lists → centered
+card). Spacing scale: 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px. Mobile: every
+grid collapses to one column; the nav shows wordmark + theme toggle only.
 
 ## Elevation & Depth
 
-Flat by construction — no box-shadows anywhere. Depth between the page and an object on it (swatch card, mark cell, stamp) is conveyed by a one-step brightness lift (Card White on Stock White) plus a 1px hairline border, the way printed material stays flat but a card visibly sits on a desk.
+Soft material depth: cards sit on the page with a 1px hairline border, a subtle
+tinted shadow, and an 18px radius. Hover lifts a card 4px and deepens the shadow;
+chips lift 2px. Shadows are tinted to the ground (never pure black in light mode).
 
 ### Named Rules
-**The No-Shadow Rule.** Depth comes from ink, paper-white delta, and hairline borders only. A shadow anywhere is a bug.
+**The Tinted-Shadow Rule.** Shadow colors are derived from ink, not pure black, and
+cards never float without a hairline border.
 
 ## Shapes
 
-Hard, trimmed edges everywhere — swatch cards, mark cells, buttons, the spread frame itself. No border-radius exists in the system.
+One radius scale, used everywhere: 8px (small tiles), 12px (buttons, icon tiles),
+18px (cards), 999px (chips, nav toggle). No mixed systems — buttons and cards share
+the soft family.
 
 ### Named Rules
-**The Cut-Line Rule.** border-radius is 0 on every element without exception, as if every shape were trimmed on a paper cutter.
+**The Soft-Cut Rule.** Every radius comes from the scale above; 0px radius exists
+nowhere in the system.
 
 ## Components
 
+### Nav (fixed)
+- **Shape:** 64px bar, `backdrop-filter: blur(14px) saturate(1.4)` over an 82%
+  ground fill, 1px bottom hairline.
+- **Anatomy:** wordmark `Mavs.` (accent dot), section links (mono, uppercase,
+  active state = accent + 2px underline), pill theme toggle with sun/moon icon.
+- **Mobile:** links hidden below 820px.
+
 ### Buttons
-- **Shape:** hard corners (0px), 1px plate-black or proof-red border depending on variant.
-- **Primary:** Proof Red background, Card White label text (Space Mono, uppercase, 16px/32px padding). Used once, for the sign-off contact CTA.
-- **Hover/Focus:** inverts to Plate Black background; focus-visible adds a 2px Proof Red outline offset 2px.
+- **Primary:** Accent fill, mono uppercase label, 12px radius. Hover inverts to Ink
+  fill on the ground color; active presses down 1px. Used once per intent — "Start
+  a project" appears in the hero and contact, both same label.
+- **Ghost:** hairline border, ink label; hover fills the border.
 
-### Swatch / Spec Cards (signature component)
-- **Shape:** hard corners, 1px Registration Gray border, Card White fill.
-- **Anatomy:** a color/content block on top, a Space Mono spec-label block below it (mimics a real Pantone chip: name, code, value).
-- **Used for:** the palette spread's identity facts, each staged as its own annotated specimen chip.
+### Capability Cards (signature component)
+- **Shape:** Surface fill, 1px hairline, 18px radius, subtle shadow, 24–32px padding.
+- **Anatomy:** accent-soft icon tile (44px, 12px radius) → title → body copy → mono
+  tag line. Hover: 4px lift, accent-tinted border, deeper shadow.
+- **Used for:** the four capabilities (Design, Frontend, Backend & APIs,
+  E-commerce & CMS) — each grounded in the documented skill list, never fabricated.
 
-### Mark Cells (signature component)
-- **Shape:** square, hard corners, 1px Registration Gray border, icon centered, Space Mono caption below.
-- **Layout:** the skill set spread groups the cells by discipline (Frontend, Backend, Design, Web Platforms & Tools), each group headed by a Space Mono label and rendered as its own bordered sub-grid sized to its cell count.
-- **State:** default is Plate Black icon on Card White; hover/focus inverts to Card White icon on Proof Red — a literal "logo reversed out of color" usage example from the skill set spread.
+### Skill Chips
+- **Shape:** pill, surface fill, 1px hairline, icon + name. Hover: 2px lift, accent
+  border, accent icon.
+- **Layout:** grouped by discipline (Frontend / Backend / Design /
+  Web Platforms & Tools), two columns on desktop, wrapped single column on mobile.
 
-### Stamps
-- **Shape:** circular double-ring border in Proof Red, Space Mono uppercase text following the ring's curve or set straight inside it, rotated -6deg.
-- **Used for:** "STATUS: AVAILABLE" on the cover, "APPROVED FOR USE" on the sign-off spread.
+### Process Lists
+- **Shape:** card with a mono column header ("Always" / "Off the table") and a
+  `divide-y` list; each row has a mono index and one line of copy. Check/x icons
+  reinforce the column intent.
 
-### Navigation / Folio
-- **Style:** fixed corner folio counter (`03 / 05`) in Space Mono, Proof Gray with the current number in Plate Black; the paper/negative toggle sits beside it as a small text switch, not an icon button.
+### Contact Card
+- **Shape:** centered card, large title, subhead, primary CTA, mono email, and a
+  hairline footer with the copyright line.
+
+## Motion
+
+`MOTION_INTENSITY` is low by design — the page earns attention through hierarchy and
+craft, not choreography.
+
+- **Scroll reveal:** sections and cards fade + rise 22px on entry (IntersectionObserver,
+  `cubic-bezier(0.16,1,0.3,1)`, ~0.7s), staggered within grids. Triggers once.
+- **Hover:** card/chip lift, button color inversion, nav link accent.
+- **Active:** buttons press down 1px.
+- **Reduced motion:** all reveals become static, all transitions collapse, and
+  smooth-scroll is disabled under `prefers-reduced-motion`.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Proof Red as the only base-palette accent; every other color is ink, paper, or gray.
-- **Do** render every spec, label, stamp, and folio number in Space Mono, uppercase, letter-spaced.
-- **Do** keep every corner hard (0px) and every surface flat (no shadows).
-- **Do** treat dark mode as the book's own film-negative proof sheet (inverted ground, same ink logic), not a separate skin.
+- **Do** keep the accent as the only hue; every other color is ink, gray, or an
+  accent tint.
+- **Do** render every label, marker, tag, and technical string in Space Mono.
+- **Do** use the documented radius scale (8/12/18/pill) and tinted shadows.
+- **Do** treat dark mode as a true film-negative (inverted ground, same ink logic).
+- **Do** keep every identity and skill claim grounded in the documented facts.
 
 ### Don't:
-- **Don't** introduce a second accent hue at base-palette scale.
-- **Don't** round any corner or add any box-shadow.
-- **Don't** use a script/cursive face anywhere in the new system.
-- **Don't** invent testimonials, client names, metrics, or pricing to fill the usage spread.
+- **Don't** introduce a second accent hue, a serif display face, or gradient heroes.
+- **Don't** animate layout properties (top/left/width/height) — transform/opacity only.
+- **Don't** ship a section without its mobile fallback declared.
+- **Don't** invent testimonials, client names, metrics, pricing, or skill ratings.

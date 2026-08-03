@@ -20,18 +20,18 @@ Undecided — no confirmed differentiator yet versus other candidates with a sim
 
 ## Operating Context
 
-Static site built with Vue 3 + Vite + Tailwind, deployed to GitHub Pages via `npm run deploy` (builds and pushes `dist` to the `gh-pages` branch via git subtree). Single page composed of NavBar, Hero, and Experience sections.
+Static site built with Vue 3 + Vite + vanilla CSS (design tokens as CSS custom properties). Deployed to GitHub Pages by the GitHub Actions workflow `.github/workflows/deployment.yaml` on every push to `master` (builds `dist` and uploads it via `upload-pages-artifact`). Single page composed of a fixed nav plus five sections: Hero, Capabilities, Skill Set, How I Work, Contact.
 
 ## Capabilities and Constraints
 
-- Site currently has no case studies, project gallery, contact form, or blog — single-page hero + skills-icon grid only.
-- Tech stack (Vue 3 + Vite + Tailwind) is not a locked constraint and may change in future work.
+- Site currently has no case studies, project gallery, contact form, or blog — a single-page portfolio of hero + capabilities + grouped skill chips + working principles + contact.
+- Tech stack (Vue 3 + Vite + vanilla CSS) is not a locked constraint and may change in future work.
 - No CMS or backend.
 
 ## Brand Commitments
 
 - Real identity/location facts must stay factual and unembellished: name Jan Maverick Alqueza, born in the Philippines, living in Zambales, raised in the 90s, UX/UI Designer, working since 2019-06-01 (experience counter computed live via dayjs `toNow`).
-- Dark/light theme toggle (currently the `Lighting` component in NavBar) must be preserved through any redesign.
+- Dark/light theme toggle (the paper/negative switch in the fixed nav) must be preserved through any redesign.
 - Wordmark: "Maverick" (desktop) / "Mavs" (mobile) stays as the short-form name used in copy/lockup. The Great Vibes script rendering is retired with the old visual world; the new world sets its own typeface for it.
 
 ## Evidence on Hand

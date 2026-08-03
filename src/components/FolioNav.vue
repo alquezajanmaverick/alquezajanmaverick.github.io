@@ -1,70 +1,144 @@
 <template>
-  <div class="folio">
-    <span class="folio__count label">
-      <span class="folio__current">{{ String(active).padStart(2, "0") }}</span>
-      / {{ String(total).padStart(2, "0") }}
-    </span>
-    <button
-      class="folio__toggle label"
-      type="button"
-      :aria-pressed="isNegative"
-      @click="toggle"
-    >
-      {{ isNegative ? "NEGATIVE" : "PAPER" }}
-    </button>
-  </div>
+  <header class="nav">
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#hero" aria-label="Back to top">
+        Mavs<span class="nav__brand-dot">.</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a
+          v-for="link in links"
+          :key="link.id"
+          :href="`#${link.id}`"
+          :class="{ 'is-active': active === link.id }"
+          class="nav__link mono"
+        >
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <button
+        class="nav__theme mono"
+        type="button"
+        :aria-pressed="isNegative"
+        @click="toggle"
+      >
+        <i :class="isNegative ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+        <span class="nav__theme-label">{{ isNegative ? "Light" : "Dark" }}</span>
+      </button>
+    </div>
+  </header>
 </template>
 
 <script setup>
 import { useTheme } from "../theme";
 
 defineProps({
-  active: { type: Number, required: true },
-  total: { type: Number, required: true },
+  active: { type: String, required: true },
 });
+
+const links = [
+  { id: "capabilities", label: "Capabilities" },
+  { id: "skills", label: "Skills" },
+  { id: "process", label: "Process" },
+  { id: "contact", label: "Contact" },
+];
 
 const { isNegative, toggle } = useTheme();
 </script>
 
 <style scoped>
-.folio {
+.nav {
   position: fixed;
-  bottom: var(--space-sm);
-  left: var(--space-sm);
-  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: var(--nav-h);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__inner {
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  background: var(--page);
-  padding: 6px 10px;
-  border: 1px solid var(--hairline);
+  justify-content: space-between;
+  gap: var(--space-5);
 }
 
-.folio__count {
-  color: var(--ink-secondary);
+.nav__brand {
+  font-family: var(--font);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.folio__current {
+.nav__brand-dot {
   color: var(--accent);
 }
 
-.folio__toggle {
-  background: none;
-  border: 1px solid var(--hairline);
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nav__link {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__link:hover {
   color: var(--ink);
-  padding: 4px 10px;
+}
+
+.nav__link.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.nav__theme {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 14px;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.folio__toggle:hover,
-.folio__toggle:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink);
+.nav__theme i {
+  font-size: 0.85rem;
 }
 
-.folio__toggle:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+.nav__theme:hover,
+.nav__theme:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (min-width: 820px) {
+  .nav__links {
+    display: flex;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav__theme-label {
+    display: none;
+  }
 }
 </style>

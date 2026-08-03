@@ -1,185 +1,143 @@
 <template>
-  <section class="spread cover" ref="root">
-    <RegistrationMarks />
-
-    <p class="cover__eyebrow label">Brand Guidelines — Vol. 01</p>
-
-    <div class="cover__lockup">
-      <div class="cover__guide">
-        <span class="cover__guide-tick cover__guide-tick--t" aria-hidden="true"></span>
-        <span class="cover__guide-tick cover__guide-tick--r" aria-hidden="true"></span>
-        <span class="cover__guide-tick cover__guide-tick--b" aria-hidden="true"></span>
-        <span class="cover__guide-tick cover__guide-tick--l" aria-hidden="true"></span>
-        <h1 class="cover__wordmark">
+  <section id="hero" class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content reveal">
+        <p class="hero__eyebrow mono">UX/UI Designer &amp; Web Developer</p>
+        <h1 class="hero__title">
           Jan Maverick<br />
           Alqueza
         </h1>
+        <p class="hero__lede">
+          Designer and developer based in Zambales, Philippines — raised in the
+          90s, building for the web since 2019.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="mailto:alquezajanmaverick@gmail.com">
+            Start a project&nbsp;&rarr;
+          </a>
+          <a class="btn btn--ghost" href="#capabilities">See capabilities</a>
+        </div>
       </div>
-      <p class="cover__clearspace label" aria-hidden="true">Clear space: 1× cap-height, all sides</p>
+
+      <dl class="hero__meta reveal">
+        <div class="hero__meta-item">
+          <dt class="mono">Status</dt>
+          <dd>
+            <span class="hero__status-dot" aria-hidden="true"></span>
+            Available for freelance work
+          </dd>
+        </div>
+        <div class="hero__meta-item">
+          <dt class="mono">Based in</dt>
+          <dd>Zambales, Philippines</dd>
+        </div>
+        <div class="hero__meta-item">
+          <dt class="mono">Since</dt>
+          <dd>2019</dd>
+        </div>
+        <div class="hero__meta-item">
+          <dt class="mono">Experience</dt>
+          <dd>{{ experience }}</dd>
+        </div>
+      </dl>
     </div>
-
-    <p class="cover__role">UX/UI Designer &amp; Web Developer</p>
-
-    <div class="cover__meta">
-      <p class="cover__version label">Portfolio Edition — v1.0 — 2026</p>
-      <div class="cover__stamp">
-        <span>Status:<br />Available</span>
-      </div>
-    </div>
-
-    <p class="cover__scroll label">Scroll — Page 02 ↓</p>
   </section>
 </template>
 
 <script setup>
-import RegistrationMarks from "./RegistrationMarks.vue";
+import { computed } from "vue";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
+const experience = computed(() => dayjs("2019-06-01").toNow(true));
 </script>
 
 <style scoped>
-.spread {
-  position: relative;
-  min-height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--space-xl) var(--space-lg);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.cover {
-  align-items: flex-start;
-  gap: var(--space-md);
-}
-
-.cover__eyebrow {
-  color: var(--ink-secondary);
-}
-
-.cover__lockup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.cover__guide {
-  position: relative;
-  padding: var(--space-md) var(--space-lg);
-  border: 1px dashed var(--hairline);
-  width: fit-content;
-}
-
-.cover__guide-tick {
-  position: absolute;
-  background: var(--hairline);
-}
-
-.cover__guide-tick--t,
-.cover__guide-tick--b {
-  left: 50%;
-  width: 1px;
-  height: var(--space-sm);
-  transform: translateX(-50%);
-}
-
-.cover__guide-tick--t {
-  top: calc(var(--space-sm) * -1);
-}
-
-.cover__guide-tick--b {
-  bottom: calc(var(--space-sm) * -1);
-}
-
-.cover__guide-tick--l,
-.cover__guide-tick--r {
-  top: 50%;
-  height: 1px;
-  width: var(--space-sm);
-  transform: translateY(-50%);
-}
-
-.cover__guide-tick--l {
-  left: calc(var(--space-sm) * -1);
-}
-
-.cover__guide-tick--r {
-  right: calc(var(--space-sm) * -1);
-}
-
-.cover__wordmark {
-  margin: 0;
-  font-size: clamp(2.75rem, 6vw, 5.5rem);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.01em;
-}
-
-.cover__clearspace {
-  color: var(--ink-secondary);
-  padding-left: var(--space-xs);
-}
-
-.cover__role {
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.05;
-  color: var(--accent);
-  margin: 0;
-}
-
-.cover__meta {
+.hero {
+  min-height: 100dvh;
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  margin-top: var(--space-sm);
+  padding: calc(var(--nav-h) + var(--space-8)) 0 var(--space-8);
 }
 
-.cover__version {
-  color: var(--ink-secondary);
-}
-
-.cover__stamp {
-  position: relative;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  width: 96px;
-  height: 96px;
+.hero__inner {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transform: rotate(-8deg);
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+.hero__eyebrow {
   color: var(--accent);
-  font-family: var(--font-label);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  flex-shrink: 0;
-  outline: 1px solid var(--accent);
-  outline-offset: 4px;
+  margin: 0 0 var(--space-4);
 }
 
-.cover__scroll {
-  position: absolute;
-  bottom: var(--space-lg);
-  right: var(--space-lg);
-  color: var(--ink-secondary);
+.hero__title {
+  margin: 0;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
 }
 
-@media (max-width: 640px) {
-  .spread {
-    padding: var(--space-lg) var(--space-md);
-  }
+.hero__lede {
+  margin: var(--space-5) 0 0;
+  max-width: 46ch;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
 
-  .cover__meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
-  }
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
 
-  .cover__scroll {
-    display: none;
+.hero__meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--space-6);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-6);
+  max-width: 760px;
+}
+
+.hero__meta-item dt {
+  color: var(--ink-3);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.hero__meta-item dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.hero__status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: var(--space-2);
+  vertical-align: 1px;
+}
+
+@media (min-width: 768px) {
+  .hero__meta {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>

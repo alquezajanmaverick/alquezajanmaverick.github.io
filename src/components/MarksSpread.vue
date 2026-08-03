@@ -1,27 +1,28 @@
 <template>
-  <section class="spread marks">
-    <RegistrationMarks />
+  <section id="skills" class="section skills">
+    <div class="container">
+      <header class="section__head reveal">
+        <span class="section__marker mono">03 / Skill Set</span>
+        <h2 class="section__title">Tools I design and build with</h2>
+        <p class="section__sub">
+          A working stack, grouped by discipline — frontend to backend to the
+          platforms I ship on.
+        </p>
+      </header>
 
-    <header class="spread__header">
-      <h2 class="spread__title">03 — Skill Set</h2>
-      <p class="spread__subhead">
-        The tools and technologies I design and build with, grouped by
-        discipline.
-      </p>
-    </header>
-
-    <div class="marks__groups">
-      <div class="marks__group" v-for="group in groups" :key="group.name">
-        <p class="label marks__group-label">{{ group.name }}</p>
-        <div class="marks__grid" :style="{ '--cols': group.marks.length }">
-          <div
-            class="marks__cell"
-            v-for="mark in group.marks"
-            :key="mark.name"
-            tabindex="0"
-          >
-            <i :class="['fa-brands', mark.icon]" aria-hidden="true"></i>
-            <span class="label marks__cell-caption">{{ mark.name }}</span>
+      <div class="skills__grid">
+        <div
+          v-for="(group, g) in groups"
+          :key="group.name"
+          class="skill-group reveal"
+          :style="{ transitionDelay: `${g * 70}ms` }"
+        >
+          <h3 class="skill-group__label mono">{{ group.name }}</h3>
+          <div class="skill-group__chips">
+            <span v-for="mark in group.marks" :key="mark.name" class="chip">
+              <i :class="['fa-brands', mark.icon]" aria-hidden="true"></i>
+              <span class="chip__name">{{ mark.name }}</span>
+            </span>
           </div>
         </div>
       </div>
@@ -30,8 +31,6 @@
 </template>
 
 <script setup>
-import RegistrationMarks from "./RegistrationMarks.vue";
-
 const groups = [
   {
     name: "Frontend",
@@ -71,121 +70,57 @@ const groups = [
 </script>
 
 <style scoped>
-.spread {
-  position: relative;
-  min-height: 100vh;
-  scroll-snap-align: start;
-  padding: var(--space-xl) var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-lg);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.spread__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.spread__title {
-  margin: 0;
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  font-weight: 500;
-  line-height: 1.05;
-}
-
-.spread__subhead {
-  margin: 0;
-  color: var(--ink-secondary);
-}
-
-.marks__groups {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.marks__group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.marks__group-label {
-  margin: 0;
-  color: var(--ink-secondary);
-}
-
-.marks__grid {
+.skills__grid {
   display: grid;
-  grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
-  border-top: 1px solid var(--hairline);
-  border-left: 1px solid var(--hairline);
-  width: fit-content;
-  max-width: 100%;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
 }
 
-.marks__cell {
-  border-right: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-  background: var(--surface);
-  aspect-ratio: 1;
-  min-width: 92px;
+.skill-group__label {
+  margin: 0 0 var(--space-3);
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.skill-group__chips {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  color: var(--ink);
-  transition: background 0.15s ease, color 0.15s ease;
+  gap: var(--space-2);
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.95rem;
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.marks__cell i {
-  font-size: 1.75rem;
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
 }
 
-.marks__cell-caption {
-  color: inherit;
-  opacity: 0.7;
-  font-size: 0.625rem;
+.chip i {
+  color: var(--ink-2);
+  font-size: 1.05rem;
 }
 
-.marks__cell:hover,
-.marks__cell:focus-visible {
-  background: var(--accent);
-  color: var(--accent-ink);
+.chip:hover i {
+  color: var(--accent);
 }
 
-.marks__cell:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -4px;
-}
-
-.marks__cell:focus:not(:focus-visible) {
-  outline: none;
-}
-
-@media (max-width: 900px) {
-  .marks__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    width: 100%;
-  }
-}
-
-@media (max-width: 640px) {
-  .spread {
-    padding: var(--space-lg) var(--space-md);
-  }
-
-  .marks__cell {
-    min-width: 0;
-  }
-
-  .marks__cell i {
-    font-size: 1.25rem;
+@media (min-width: 720px) {
+  .skills__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-7) var(--space-6);
   }
 }
 </style>
