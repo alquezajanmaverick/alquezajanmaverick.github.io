@@ -1,11 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --proof-red: #c63a0f;
+  --plate-black: #14161a;
+  --proof-gray: #6b6e76;
+  --registration-gray: #d8d9dc;
+  --stock-white: #fafaf9;
+  --card-white: #ffffff;
 
-.poppins{
-  font-family: 'Poppins', sans-serif;
+  --ink: var(--plate-black);
+  --ink-secondary: var(--proof-gray);
+  --hairline: var(--registration-gray);
+  --page: var(--stock-white);
+  --surface: var(--card-white);
+  --accent: var(--proof-red);
+  --accent-ink: var(--card-white);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-label: "Space Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 96px;
+
+  color-scheme: light;
 }
 
-.great-vibes{
-  font-family: 'Great Vibes', cursive;
+html.negative {
+  --proof-red: #e14a1c;
+  --plate-black: #f5f5f2;
+  --proof-gray: #a7aab2;
+  --registration-gray: #3a3c42;
+  --stock-white: #121316;
+  --card-white: #1b1d21;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.spread {
+  position: relative;
+}
+
+.spread::before {
+  content: "";
+  position: absolute;
+  inset: var(--space-sm);
+  border: 1px solid var(--hairline);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
 }

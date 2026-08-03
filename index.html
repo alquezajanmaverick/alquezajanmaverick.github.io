@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23C63A0F' stroke-width='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='30' stroke='%2314161A' stroke-width='2'/%3E%3Cline x1='2' y1='16' x2='30' y2='16' stroke='%2314161A' stroke-width='2'/%3E%3C/svg%3E"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css"/>
-    <title>Jan Maverick Alqueza</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Jan Maverick Alqueza — UX/UI Designer. Brand guidelines, rendered as the guidelines themselves."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css"
+    />
+    <title>Jan Maverick Alqueza — Brand Guidelines</title>
+    <script>
+      // Runs before any module script so the proof/negative class is set
+      // before Vue (and theme.js's module-scope ref) ever reads it.
+      if (
+        localStorage.theme === "negative" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("negative");
+      }
+    </script>
   </head>
   <body>
-    <div id="app" class="transition-all ease-in-out delay-150 duration-500"></div>
+    <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
