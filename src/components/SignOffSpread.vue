@@ -9,12 +9,11 @@
 
       <h2 class="spread__title">05 — Sign-off</h2>
       <p class="signoff__lede">
-        If this reads like something you'd hand to a client, it's ready to work
-        for you too.
+        Guidelines reviewed. Ready to put them to work on your project.
       </p>
 
       <a class="signoff__cta" href="mailto:alquezajanmaverick@gmail.com">
-        Request approval →
+        Start a project →
       </a>
       <p class="signoff__contact">
         <span class="label">Contact</span>

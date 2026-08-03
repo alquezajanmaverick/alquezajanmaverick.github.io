@@ -18,7 +18,7 @@
       <p class="cover__clearspace label" aria-hidden="true">Clear space: 1× cap-height, all sides</p>
     </div>
 
-    <p class="cover__role">UX/UI Designer</p>
+    <p class="cover__role">UX/UI Designer &amp; Web Developer</p>
 
     <div class="cover__meta">
       <p class="cover__version label">Portfolio Edition — v1.0 — 2026</p>

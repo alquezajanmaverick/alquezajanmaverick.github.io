@@ -3,14 +3,27 @@
     <RegistrationMarks />
 
     <header class="spread__header">
-      <h2 class="spread__title">03 — Approved Marks</h2>
-      <p class="spread__subhead">For use across all applications. Reversed variant shown on hover or focus.</p>
+      <h2 class="spread__title">03 — Skill Set</h2>
+      <p class="spread__subhead">
+        The tools and technologies I design and build with, grouped by
+        discipline.
+      </p>
     </header>
 
-    <div class="marks__grid">
-      <div class="marks__cell" v-for="mark in marks" :key="mark.name" tabindex="0">
-        <i :class="['fa-brands', mark.icon]" aria-hidden="true"></i>
-        <span class="label marks__cell-caption">{{ mark.name }}</span>
+    <div class="marks__groups">
+      <div class="marks__group" v-for="group in groups" :key="group.name">
+        <p class="label marks__group-label">{{ group.name }}</p>
+        <div class="marks__grid" :style="{ '--cols': group.marks.length }">
+          <div
+            class="marks__cell"
+            v-for="mark in group.marks"
+            :key="mark.name"
+            tabindex="0"
+          >
+            <i :class="['fa-brands', mark.icon]" aria-hidden="true"></i>
+            <span class="label marks__cell-caption">{{ mark.name }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -19,23 +32,41 @@
 <script setup>
 import RegistrationMarks from "./RegistrationMarks.vue";
 
-const marks = [
-  { name: "HTML5", icon: "fa-html5" },
-  { name: "JavaScript", icon: "fa-square-js" },
-  { name: "CSS3", icon: "fa-css3-alt" },
-  { name: "PHP", icon: "fa-php" },
-  { name: "Python", icon: "fa-python" },
-  { name: "Java", icon: "fa-java" },
-  { name: "Laravel", icon: "fa-laravel" },
-  { name: "Sass", icon: "fa-sass" },
-  { name: "Figma", icon: "fa-figma" },
-  { name: "Angular", icon: "fa-angular" },
-  { name: "Vue", icon: "fa-vuejs" },
-  { name: "React", icon: "fa-react" },
-  { name: "Node", icon: "fa-node" },
-  { name: "Git", icon: "fa-square-git" },
-  { name: "Shopify", icon: "fa-shopify" },
-  { name: "WordPress", icon: "fa-wordpress" },
+const groups = [
+  {
+    name: "Frontend",
+    marks: [
+      { name: "HTML5", icon: "fa-html5" },
+      { name: "CSS3", icon: "fa-css3-alt" },
+      { name: "JavaScript", icon: "fa-square-js" },
+      { name: "Sass", icon: "fa-sass" },
+      { name: "Vue", icon: "fa-vuejs" },
+      { name: "Angular", icon: "fa-angular" },
+      { name: "React", icon: "fa-react" },
+    ],
+  },
+  {
+    name: "Backend",
+    marks: [
+      { name: "PHP", icon: "fa-php" },
+      { name: "Laravel", icon: "fa-laravel" },
+      { name: "Node", icon: "fa-node" },
+      { name: "Python", icon: "fa-python" },
+      { name: "Java", icon: "fa-java" },
+    ],
+  },
+  {
+    name: "Design",
+    marks: [{ name: "Figma", icon: "fa-figma" }],
+  },
+  {
+    name: "Web Platforms & Tools",
+    marks: [
+      { name: "WordPress", icon: "fa-wordpress" },
+      { name: "Shopify", icon: "fa-shopify" },
+      { name: "Git", icon: "fa-square-git" },
+    ],
+  },
 ];
 </script>
 
@@ -71,11 +102,30 @@ const marks = [
   color: var(--ink-secondary);
 }
 
+.marks__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.marks__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.marks__group-label {
+  margin: 0;
+  color: var(--ink-secondary);
+}
+
 .marks__grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
   border-top: 1px solid var(--hairline);
   border-left: 1px solid var(--hairline);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .marks__cell {
@@ -83,6 +133,7 @@ const marks = [
   border-bottom: 1px solid var(--hairline);
   background: var(--surface);
   aspect-ratio: 1;
+  min-width: 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,13 +170,18 @@ const marks = [
 
 @media (max-width: 900px) {
   .marks__grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
   }
 }
 
 @media (max-width: 640px) {
   .spread {
     padding: var(--space-lg) var(--space-md);
+  }
+
+  .marks__cell {
+    min-width: 0;
   }
 
   .marks__cell i {

@@ -27,11 +27,11 @@
       </div>
       <div class="palette__fact card">
         <p class="label palette__fact-label">Role</p>
-        <p class="palette__fact-value">UX/UI Designer.</p>
+        <p class="palette__fact-value">UX/UI Designer &amp; web developer.</p>
       </div>
       <div class="palette__fact card">
         <p class="label palette__fact-label">Experience</p>
-        <p class="palette__fact-value">{{ experience }} from current job.</p>
+        <p class="palette__fact-value">{{ experience }} designing and building for the web.</p>
       </div>
     </div>
   </section>

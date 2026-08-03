@@ -4,7 +4,7 @@
 
     <header class="spread__header">
       <h2 class="spread__title">04 — Usage</h2>
-      <p class="spread__subhead">How this mark is applied in collaboration.</p>
+      <p class="spread__subhead">Rules of engagement — how this mark is applied in collaboration.</p>
     </header>
 
     <div class="usage__columns">

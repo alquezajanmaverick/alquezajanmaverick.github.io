@@ -100,7 +100,7 @@ components:
 
 **Creative North Star: "The Personal Brand Guideline Book"**
 
-The site is not a portfolio describing a designer's brand; it is that brand's own guideline manual, rendered as five numbered spreads a visitor scrolls through like turning pages: cover, palette, marks, usage, sign-off. Every section borrows a real convention from print brand-guideline documents — spec-sheet callouts, clear-space diagrams, logo-on-color usage grids, approval stamps — and applies that convention honestly to a single person's identity and skill set. The register is calm, considered, and confident rather than decorative: this is a working document a client could believe was actually issued to a print shop, not a themed skin over a generic hero-plus-icon-grid template.
+The site is not a portfolio describing a designer's brand; it is that brand's own guideline manual, rendered as five numbered spreads a visitor scrolls through like turning pages: cover, palette, skill set, usage, sign-off. Every section borrows a real convention from print brand-guideline documents — spec-sheet callouts, clear-space diagrams, logo-on-color usage grids, approval stamps — and applies that convention honestly to a single person's identity and skill set. The register is calm, considered, and confident rather than decorative: this is a working document a client could believe was actually issued to a print shop, not a themed skin over a generic hero-plus-icon-grid template.
 
 Confirmed rejections: no script/cursive display face, no rounded corners, no drop shadows, no gradient hero, no stock illustration, no cream/ivory paper tone.
 
@@ -158,7 +158,7 @@ A one-ink print system: stock-white paper, plate-black body ink, and a single sp
 
 ## Layout
 
-Five full-height numbered spreads (`01`–`05`) in a CSS scroll-snap-y container, each snapping to the viewport like a page turn. Each spread is framed by a thin registration border inset from the viewport edge, with a small crosshair-in-circle registration mark at each of its four corners — the recurring signature motif that stands in for a logo. Content sits in a centered column, max-width ~1200px, with generous edge margins that read as the page's bleed/trim area. Spacing scale: 8 / 16 / 24 / 48 / 96px, used so a dense spread (marks grid) is always followed by a quieter one (usage/sign-off). A fixed folio indicator (current spread number over total, e.g. `03 / 05`) sits in a bottom corner across all spreads. Mobile: spreads keep their full-height snap behavior; multi-column grids (palette specimens, marks grid) collapse to fewer columns, never below 2.
+Five full-height numbered spreads (`01`–`05`) in a CSS scroll-snap-y container, each snapping to the viewport like a page turn. Each spread is framed by a thin registration border inset from the viewport edge, with a small crosshair-in-circle registration mark at each of its four corners — the recurring signature motif that stands in for a logo. Content sits in a centered column, max-width ~1200px, with generous edge margins that read as the page's bleed/trim area. Spacing scale: 8 / 16 / 24 / 48 / 96px, used so a dense spread (skill grid) is always followed by a quieter one (usage/sign-off). A fixed folio indicator (current spread number over total, e.g. `03 / 05`) sits in a bottom corner across all spreads. Mobile: spreads keep their full-height snap behavior; multi-column grids (palette specimens, skill grid) collapse to fewer columns, never below 2.
 
 ## Elevation & Depth
 
@@ -188,7 +188,8 @@ Hard, trimmed edges everywhere — swatch cards, mark cells, buttons, the spread
 
 ### Mark Cells (signature component)
 - **Shape:** square, hard corners, 1px Registration Gray border, icon centered, Space Mono caption below.
-- **State:** default is Plate Black icon on Card White; hover/focus inverts to Card White icon on Proof Red — a literal "logo reversed out of color" usage example from the marks spread.
+- **Layout:** the skill set spread groups the cells by discipline (Frontend, Backend, Design, Web Platforms & Tools), each group headed by a Space Mono label and rendered as its own bordered sub-grid sized to its cell count.
+- **State:** default is Plate Black icon on Card White; hover/focus inverts to Card White icon on Proof Red — a literal "logo reversed out of color" usage example from the skill set spread.
 
 ### Stamps
 - **Shape:** circular double-ring border in Proof Red, Space Mono uppercase text following the ring's curve or set straight inside it, rotated -6deg.
